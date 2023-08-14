@@ -1,0 +1,18 @@
+.Footer {
+    background-image: linear-gradient(rgb(49, 108, 137), rgb(136, 76, 180));
+    display: flex;
+    justify-content: center;
+
+    ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+
+        li {
+            color: rgb(15, 55, 120);
+            font-weight: bold;
+        }
+
+       
+    }
+}

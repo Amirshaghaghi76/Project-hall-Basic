@@ -1,0 +1,37 @@
+div {
+    display: flex;
+    justify-content: center;
+
+    mat-expansion-panel {
+        margin-top: 15rem;
+        width: 50%;
+        border: rgb(76, 142, 175) 2px solid;
+
+        .panel-coment {
+            background-image: linear-gradient(rgb(169, 201, 235), rgb(206, 181, 236));
+            justify-content: space-between;
+
+            mat-panel-title {
+                font-weight: bold;
+                font-size: 1.3rem;
+                color: rgb(26, 98, 149);
+            }
+
+            mat-icon {
+                padding: 1rem;
+                color: rgb(40, 96, 145);
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+
+        button {
+            margin-right: 0.5rem;
+        }
+    }
+}

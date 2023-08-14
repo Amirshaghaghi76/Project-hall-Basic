@@ -1,0 +1,167 @@
+body {
+    background-image: linear-gradient(rgb(96, 179, 220), rgb(191, 140, 223), rgb(152, 104, 182),
+            rgb(170, 140, 199), rgb(74, 118, 190));
+    height: auto;
+
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border: solid 3px rgb(160, 124, 95);
+
+
+        .card-title {
+            width: 33rem;
+            margin-top: 1rem;
+            background-image: linear-gradient(rgb(138, 176, 212), rgb(184, 108, 192), rgb(117, 150, 187));
+
+            h3 {
+                color: rgb(173, 60, 210);
+                font-weight: bold;
+                font-size: 1.4rem;
+
+                span {
+                    color: rgb(145, 90, 205);
+                }
+            }
+
+            button {
+                margin-top: 1rem;
+            }
+
+            .button-add-hall {
+                margin-left: 0.5rem;
+
+            }
+
+            .caption {
+                font-size: 1.3rem;
+                color: rgb(97, 64, 153);
+                font-weight: bold;
+            }
+
+            img {
+                border: rgb(175, 52, 122) solid 2px;
+
+            }
+        }
+    }
+
+    .Counseling {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+
+        form {
+            border: 0.2rem solid rgb(64, 68, 193);
+
+            // .mat-mdc-raised-button:not(:disabled) {
+            //     margin: 1rem;
+            // 
+            .mat-mdc-raised-button:not(:disabled) {
+                margin: 1rem;
+            }
+
+            .mat-mdc-raised-button:not(:enabled) {
+                margin: 1rem;
+            }
+
+            .input {
+                margin-left: 1rem;
+            }
+
+            h2 {
+                padding: 1rem;
+                color: rgb(67, 103, 208);
+                font-weight: bold;
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        max-width: 85rem;
+        // border: 2px solid cadetblue;
+        margin-left: 6rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        gap: 1rem;
+        // background-color: aqua;
+
+
+        .example-card {
+            max-width: 400px;
+            margin: 1rem;
+            //  background-color: rgb(221, 51, 97); 
+            background-image: linear-gradient(rgb(172, 138, 212), rgb(107, 76, 138), rgb(115, 165, 219));
+        }
+
+        mat-card-actions {
+            .button-more {
+                margin-left: 0.5rem;
+            }
+        }
+
+        mat-card-content {
+            p {
+                padding-top: 0.5rem;
+            }
+        }
+
+        mat-card-title {
+            color: rgb(115, 53, 157);
+            padding-top: 0.5rem;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .example-header-image1 {
+            background-image: url(../../../assets/imges/halls1.jpeg);
+            background-size: cover;
+        }
+
+        .example-header-image2 {
+            background-image: url(../../../assets/imges/eram-hall.jpeg);
+            background-size: cover;
+        }
+
+        .example-header-image3 {
+            background-image: url(../../../assets/imges/opal-hall.jpg);
+            background-size: cover;
+        }
+
+        .example-header-image4 {
+            background-image: url(../../../assets/imges/aghigh-hall.jpeg);
+            background-size: cover;
+        }
+
+        .example-header-image5 {
+            background-image: url(../../../assets/imges/parsis-hall.jpg);
+            background-size: cover;
+        }
+
+        .example-header-image6 {
+            background-image: url(../../../assets/imges/minoram-hall.jpg);
+            background-size: cover;
+        }
+
+        .example-header-image7 {
+            background-image: url(../../../assets/imges/Asoo-hall.jpeg);
+            background-size: cover;
+        }
+
+        .example-header-image8 {
+            background-image: url(../../../assets/imges/zomorod-hall.jpg);
+            background-size: cover;
+        }
+
+        .example-header-image9 {
+            background-image: url(../../../assets/imges/gelaris-hall.jpg);
+            background-size: cover;
+        }
+    }
+
+}

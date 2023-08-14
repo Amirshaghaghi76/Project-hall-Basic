@@ -1,0 +1,30 @@
+<div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="panel-coment">
+            <mat-panel-title>
+                Please write your comments about the site
+            </mat-panel-title>
+            <mat-icon> comment</mat-icon>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="commentFg">
+            <mat-form-field appearance="outline" color="warn">
+                <mat-label> Enter Your Name</mat-label>
+                <input type="text" formControlName="nameCtrl" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label> Phone Number</mat-label>
+                <input type="text" formControlName="phoneNumberCtrl" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label> Coments </mat-label>
+                <textarea formControlName="opinionCtrl" matInput> </textarea>
+            </mat-form-field>
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="registerComment()"> submit</button>
+                <button mat-raised-button color="primary" (click)="ClearForm()"> reset</button>
+
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
+</div>

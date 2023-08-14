@@ -1,0 +1,78 @@
+<form [formGroup]="hallFg">
+    <h2>Please put your forum features </h2>
+    <mat-form-field appearance="outline" color="accent">
+        <mat-label> Name</mat-label>
+        <input class="input" type="text" formControlName="nameCtrl" matInput placeholder="Enter yoyr name hall">
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+        <mat-label>City</mat-label>
+        <mat-select formControlName="cityCtrl" placeholder=" Please select a city ">
+            <mat-option value="{{city}}" *ngFor="let city of cities">
+                <p>{{city | titlecase}} </p>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+        <mat-label>PriceLevel</mat-label>
+        <mat-select formControlName="priceLevelCtrl" placeholder="Select a price level">
+            <mat-option value="price" *ngFor="let price of prices">
+                <p>{{price | titlecase}} </p>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+        <mat-label> Capacity Hall</mat-label>
+        <input type="number" formControlName="capacityCtrl" matInput>
+        <mat-hint class="Capacity"> Select the capacity of the hall</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent">
+        <mat-label> Phone number</mat-label>
+        <input type="text" formControlName="phoneNumberCtrl" matInput>
+        <!-- <mat-icon> phone</mat-icon> -->
+    </mat-form-field>
+
+    <div class="Checkbox">
+        <div>
+            <mat-checkbox formControlName="parkingCtrl" [labelPosition]="'before'">
+                <P> Parking </P>
+            </mat-checkbox>
+
+            <mat-checkbox formControlName="weddingRoomCtrl" [labelPosition]="'before'">
+                <P> Wedding Room </P>
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="freeWifiCtrl" [labelPosition]="'before'">
+                <P> Free Internet</P>
+            </mat-checkbox>
+            <mat-checkbox formControlName="cofeCtrl" [labelPosition]="'before'">
+                <P> Coffeeshop </P>
+            </mat-checkbox>
+        </div>
+        <div>
+            <mat-checkbox formControlName="elevatorCtrl" [labelPosition]="'before'">
+                <P> evelator </P>
+            </mat-checkbox>
+            <!-- 
+            <mat-checkbox formControlName=" lightingCtrl" [labelPosition]="'before'">
+                <P> lighting -->
+
+            <!-- </mat-checkbox> -->
+        </div>
+    </div>
+    <button (click)="submitHall()" mat-raised-button color="accent">
+        Submit
+    </button>
+</form>
+
+<p>{{hallFg.value | json}}</p>
+
+<!-- </div>
+        <mat-form-field appearance="outline" color="accent">
+        <mat-label>Toppings</mat-label>
+        <mat-select formControlName="feature" multiple>
+            <mat-option value="feature" *ngIf="let feature of features"> {{feature}}</mat-option>
+        </mat-select>
+        </mat-form-field> -->

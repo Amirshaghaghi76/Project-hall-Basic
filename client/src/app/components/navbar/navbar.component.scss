@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-image: linear-gradient(rgb(174, 118, 226), rgb(120, 188, 222));
+
+
+    div {
+        display: flex;
+        gap: 0.5rem;
+
+        li {
+            list-style: none;
+            color: rgb(37, 98, 148);
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+
+        .icon-account {
+            margin-top: 0.2rem;
+            background-color: rgb(58, 104, 144);
+        }
+
+
+        h3 {
+            color: rgb(173, 60, 210);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 1rem;
+
+            span {
+                color: rgb(145, 90, 205);
+            }
+        }
+    }
+
+    .list {
+        display: flex;
+        gap: 0.1rem;
+
+        li {
+            list-style: none;
+            padding: 0.4rem;
+            color: rgb(37, 98, 148);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        .icon {
+            margin-top: 0.5rem;
+            color: rgb(33, 89, 149);
+            cursor: pointer;
+        }
+
+    }
+}
