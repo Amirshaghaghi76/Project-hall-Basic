@@ -1,11 +1,4 @@
 
-
-using api.Models;
-using api.Settings;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson;
-using MongoDB.Driver;
-
 namespace api.Controllers;
 
 [ApiController]
