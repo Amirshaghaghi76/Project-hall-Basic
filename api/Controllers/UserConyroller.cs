@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace api.Controllers;
 
@@ -10,5 +6,27 @@ namespace api.Controllers;
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
+    private const string _collectionName = "users";
+    private readonly IMongoCollection<AppUser>? _collection;
 
+    public UserController(IMongoClient client, IMongoDbSettings dbSettings)
+    {
+        var database = client.GetDatabase(dbSettings.DatabaseName);
+        // Use 'client' (MongoDB Client) to get the database with the name defined in settings (appsettings.json), and assign it to the 'database' variable
+
+        _collection = database.GetCollection<AppUser>(_collectionName);
+        // Get the "users" collection from the database, typed to AppUser, and assign it to _collection
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<AppUser>>> GetAll(CancellationToken cancellationToken) {
+
+        List<AppUser> appUsers = await _collection.Find<AppUser>(new BsonDocument()).ToListAsync(cancellationToken);
+
+        if (appUsers.Count == 0)
+            return NoContent();
+
+        return appUsers;
+    
+   }
 }
