@@ -19,7 +19,8 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<AppUser>>> GetAll(CancellationToken cancellationToken) {
+    public async Task<ActionResult<IEnumerable<AppUser>>> GetAll(CancellationToken cancellationToken)
+    {
 
         List<AppUser> appUsers = await _collection.Find<AppUser>(new BsonDocument()).ToListAsync(cancellationToken);
 
@@ -27,6 +28,16 @@ public class UserController : ControllerBase
             return NoContent();
 
         return appUsers;
-    
-   }
+    }
+
+    [HttpGet("get-by-id/{userId}")]
+    public async Task<ActionResult<AppUser>> GetById(string userId, CancellationToken cancellationToken)
+    {
+        AppUser appUser = await _collection.Find<AppUser>(user => user.Id == userId).FirstOrDefaultAsync(cancellationToken);
+
+        if (appUser is null)
+            return NotFound();
+
+        return appUser;
+    }
 }
