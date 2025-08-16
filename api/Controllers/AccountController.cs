@@ -1,9 +1,3 @@
-using System.Linq.Expressions;
-using api.Models;
-using api.Settings;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
-
 namespace api.Controllers;
 
 [ApiController]
@@ -23,7 +17,7 @@ public class AccountController : ControllerBase
     }
     [HttpPost("register")]
     // public async Task<ActionResult<AppUser>> Create(AppUser userInput){}
-    public async Task<ActionResult<AppUser>> Create(AppUser userInput, CancellationToken cancellationToken)
+    public async Task<ActionResult<UserDto>> Create(RegisterDto userInput, CancellationToken cancellationToken)
     {
         try
         {
@@ -64,13 +58,46 @@ public class AccountController : ControllerBase
 
             // await Task.Delay(15000, linkedCts.Token); test to error 408
 
-            return appUser;
+            if (appUser.Id is not null)
+            {
+                UserDto userDto = new(
+                    Id: appUser.Id,
+                    Email: appUser.Email
+                );
+                return userDto;
+            }
+
+            return BadRequest("user was not created successfully");
         }
 
         catch (OperationCanceledException)
         {
             return StatusCode(408, "Your connection was too slow. Pelese check your internet and try again");
         }
+    }
+
+    [HttpPost("login")]
+    public async Task<ActionResult<UserDto>> Login(LoginDto userInput, CancellationToken cancellationToken)
+    {
+        AppUser appUser = await _collection.Find<AppUser>(user =>
+        user.Email == userInput.Email.ToLower().Trim()
+        && user.Password == userInput.Password).FirstOrDefaultAsync(cancellationToken);
+
+        if (appUser is null)
+
+            return Unauthorized("wrong is username or password");
+
+        if (appUser.Id is not null)
+        {
+            UserDto userDto = new(
+              Id: appUser.Id,
+              Email: appUser.Email
+            );
+
+            return userDto;
+        }
+
+        return BadRequest("Task failed");
     }
 }
 
